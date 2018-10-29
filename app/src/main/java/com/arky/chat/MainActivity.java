@@ -38,10 +38,10 @@ public class MainActivity extends Activity {
 
         Random rand = new Random();
 
-        layout = (LinearLayout)findViewById(R.id.layoutscroll);
-        scrow = (ScrollView)findViewById(R.id.scrow);
-        enviar = (Button)findViewById(R.id.button);
-        final EditText escrita = (EditText) findViewById(R.id.editText);
+        layout = findViewById(R.id.layoutscroll);
+        scrow = findViewById(R.id.scrow);
+        enviar = findViewById(R.id.button);
+        final EditText escrita = findViewById(R.id.editText);
         String[] bomdia ={"Bom dia", "Boom diaa", "bomm diaa"};
         String[] apelido ={"amigão", "brother", "irmão", "patrão", "xuxu"};
         String[] boanoite={"Boa noite", "Boa noitee", "Booa noiteee"};
@@ -58,11 +58,8 @@ public class MainActivity extends Activity {
             }
         });
 
-
-
         new mensagem("Oi! Tudo bem? Como vai a familia?", false).criar().setCor(Color.RED);
         //layout.addView( new mensagem("Sim! Tudo bem graças a Deus!", 1, true).getView() );
-
 
     }
 
