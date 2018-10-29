@@ -62,7 +62,8 @@ public class MainActivity extends Activity {
         });
 
 
-        layout.addView( new mensagem("Oi! Tudo bem? Como vai a familia?", 0, false).getView() );
+
+        new mensagem("Oi! Tudo bem? Como vai a familia?", 0, false).criar();
         //layout.addView( new mensagem("Sim! Tudo bem graças a Deus!", 1, true).getView() );
 
 
@@ -82,6 +83,7 @@ public class MainActivity extends Activity {
 
         public mensagem(String texto, int id, boolean usuario){
 
+
             this.texto=new TextView(getContext());
 
             this.texto.setTextIsSelectable(true); //pode copiar as mensagens?
@@ -95,7 +97,7 @@ public class MainActivity extends Activity {
 
 
             //muda o layout dos textos pra quebrar as linhas depois do 15 caracter
-          // this.texto.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+            // this.texto.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
             //this.texto.setMaxEms(15); //quebra a linha depois do 15 caracter
 
             if(usuario){
@@ -118,16 +120,22 @@ public class MainActivity extends Activity {
             this.setUsuario(usuario);
 
             //muda o layout dos textos pra quebrar as linhas depois do 15 caracter
-            this.texto.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
-            this.texto.setMaxEms(15); //quebra a linha depois do 15 caracter
+            // this.texto.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+            //this.texto.setMaxEms(15); //quebra a linha depois do 15 caracter
 
-            if(usuario){ //mensagem do usuario?
-                this.texto.setX(200);
+            if(usuario){
                 this.texto.setGravity(Gravity.RIGHT);
-            } else this.texto.setGravity(Gravity.LEFT);
+                this.texto.setWidth(size.x-(size.x/4));
+            } else {
+                this.texto.setGravity(Gravity.LEFT);
+                // this.texto.setBackgroundColor(Color.LTGRAY);
+            }
 
         }
 
+        public void criar(){
+            layout.addView(texto);
+        }
         public TextView getView() {
             return texto;
         }
