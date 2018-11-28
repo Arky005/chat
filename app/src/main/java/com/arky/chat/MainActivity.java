@@ -64,7 +64,6 @@ public class MainActivity extends Activity {
     }
 
     //Classe para criar mensagens personalizadas
-    //cada mensagem pode ter no maximo 1 linha(25 caracteres).
     class mensagem {
 
         private TextView texto;
@@ -81,7 +80,7 @@ public class MainActivity extends Activity {
             this.setId(idGlobal);
             this.setTamanhoFonte(17);
             this.setUsuario(usuario);
-            this.texto.setHeight( this.getTamanhoFonte()*5*numeroLinhas() );
+            this.texto.setHeight( this.getTamanhoFonte()*3*numeroLinhas() );
 
 
             if(usuario){
@@ -106,21 +105,16 @@ public class MainActivity extends Activity {
 
             if(usuario){
                 this.texto.setGravity(Gravity.RIGHT);
-                this.texto.setWidth(size.x-(size.x/4));
             } else {
                 this.texto.setGravity(Gravity.LEFT);
-                // this.texto.setBackgroundColor(Color.LTGRAY);
             }
 
             idGlobal++;
         }
 
         private int numeroLinhas(){
-            int resp=1;
             int tamanho=this.texto.getText().length();
-            if(tamanho>25&&tamanho<50){
-                resp=2;
-            }
+            int resp=(tamanho/25)+1;//25 caracteres em uma linha
             return resp;
         }
 
